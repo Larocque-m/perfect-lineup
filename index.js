@@ -16,11 +16,13 @@ function PlayerNumber(lineup) {
 
 function PositionNumber(lineup) {
   const field = ['C', 'P', 'SS', '2B', '1B', '3B', 'OF', 'OF', 'OF']
-  // want to pull these positions from array list
+  const positions = lineup.map((lineup) => lineup.position)
+
+  return positions.every(currentValue => field.indexOf(currentValue) > -1)
 }
 
 const validateLineup = (lineup) => {
-  return teamNumber(lineup) && gameNumber(lineup) && PlayerNumber(lineup) && SalaryNumber(lineup) && PositionNumber(lineup)
+  return TeamNumber(lineup) && GameNumber(lineup) && PlayerNumber(lineup) && SalaryNumber(lineup) && PositionNumber(lineup)
 }
 
 module.exports = validateLineup
