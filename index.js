@@ -5,8 +5,18 @@
 // have three OF and a C, P, 1B, 2B, 3B, SS
 // false when too few players 
 // false when salary greater than 4500
+
+function SalaryNumber(lineup) {
+  return (45000 > lineup.reduce((total, salary) => total + salary, 0))
+}
+
+function teamNumber (lineup) {
+  
+}
+
 const validateLineup = (lineup) => {
-  return teamNumber && gameNumber && PlayerNumber && SalaryNumber && PositionNumber
+
+  return teamNumber(lineup) && gameNumber(lineup) && PlayerNumber(lineup) && SalaryNumber(lineup) && PositionNumber(lineup)
 }
 
 module.exports = validateLineup
