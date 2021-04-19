@@ -1,3 +1,11 @@
+const validateLineup = (lineup) => {
+  return SalaryNumber(lineup) &&
+  PlayerNumber(lineup) &&
+  PositionNumber(lineup) &&
+  TeamNumber(lineup) &&
+  GameNumber(lineup)
+}
+
 function SalaryNumber(lineup) {
   return (45000 > lineup.map((lineup) => lineup.salary).reduce((total, salary) => total + salary))
 }
@@ -12,6 +20,7 @@ function PositionNumber(lineup) {
   const outfiled = ['OF', 'OF', 'Of']
   const field = ['C', 'P', 'SS', '2B', '1B', '3B']
   const positions = lineup.map((lineup) => lineup.position)
+
 
   // eslint-disable-next-line max-len
   return positions.every(currentValue => field.indexOf(currentValue) > -1) && positions.every(ofvalue => outfiled.indexOf(ofvalue) > -1)
@@ -55,14 +64,6 @@ function GameNumber(lineup) {
   }
 
   return gameCount <= 3
-}
-
-const validateLineup = (lineup) => {
-  return TeamNumber(lineup) &&
-  GameNumber(lineup) &&
-  PlayerNumber(lineup) &&
-  SalaryNumber(lineup) &&
-  PositionNumber(lineup)
 }
 
 module.exports = validateLineup
