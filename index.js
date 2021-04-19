@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 // check lineup on a team 
 // check lineup in a game
 // check number of player to be 9 in a lineup  
@@ -7,11 +8,13 @@
 // false when salary greater than 4500
 
 function SalaryNumber(lineup) {
-  return (45000 > lineup.reduce((total, salary) => total + salary))
+  return (45000 > lineup.map((lineup) => lineup.salary).reduce((total, salary) => total + salary))
 }
 
 function PlayerNumber(lineup) {
-  return lineup.length === 9
+  const players = lineup.map((lineup) => lineup.name)
+
+  return players.length === 9
 }
 
 function PositionNumber(lineup) {
@@ -23,7 +26,42 @@ function PositionNumber(lineup) {
 
 function TeamNumber(lineup) {
   const teams = lineup.map((lineup) => lineup.teamId)
-  // Will need a way to count the number of same teams
+  const teamssorted = teams.sort((a, b) => a - b)
+  let Count = 1
+  let teamCount = 1
+
+  for (let i = 0; i < teamssorted.length; i++) {
+    if (teamssorted[i] === teamssorted[i + 1]) {
+      Count++
+    } else {
+      Count = 1
+    }
+    if (Count > teamCount) {
+      teamCount = Count
+    }
+  }
+
+  return teamCount <= 2
+}
+
+function GameNumber(lineup) {
+  const games = lineup.map((lineup) => lineup.gameId)
+  const gamessorted = games.sort((a, b) => a - b)
+  let Count = 1
+  let gameCount = 1
+
+  for (let i = 0; i < gamessorted.length; i++) {
+    if (gamessorted[i] === gamessorted[i + 1]) {
+      Count++
+    } else {
+      Count = 1
+    }
+    if (Count > gameCount) {
+      gameCount = Count
+    }
+  }
+
+  return gameCount <= 3
 }
 
 const validateLineup = (lineup) => {
