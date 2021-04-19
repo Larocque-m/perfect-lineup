@@ -22,7 +22,8 @@ function PositionNumber(lineup) {
 }
 
 function TeamNumber(lineup) {
-  // get the team ID's with map
+  const teams = lineup.map((lineup) => lineup.teamId)
+  // Will need a way to count the number of same teams
 }
 
 const validateLineup = (lineup) => {
