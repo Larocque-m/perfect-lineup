@@ -21,6 +21,10 @@ function PositionNumber(lineup) {
   return positions.every(currentValue => field.indexOf(currentValue) > -1)
 }
 
+function TeamNumber(lineup) {
+  // get the team ID's with map
+}
+
 const validateLineup = (lineup) => {
   return TeamNumber(lineup) && GameNumber(lineup) && PlayerNumber(lineup) && SalaryNumber(lineup) && PositionNumber(lineup)
 }
