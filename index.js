@@ -7,15 +7,18 @@
 // false when salary greater than 4500
 
 function SalaryNumber(lineup) {
-  return (45000 > lineup.reduce((total, salary) => total + salary, 0))
+  return (45000 > lineup.reduce((total, salary) => total + salary))
 }
 
-function teamNumber (lineup) {
-  
+function PlayerNumber(lineup) {
+  return lineup.length === 9
+}
+
+function PositionNumber(lineup) {
+  const 
 }
 
 const validateLineup = (lineup) => {
-
   return teamNumber(lineup) && gameNumber(lineup) && PlayerNumber(lineup) && SalaryNumber(lineup) && PositionNumber(lineup)
 }
 
