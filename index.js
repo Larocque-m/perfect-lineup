@@ -15,7 +15,8 @@ function PlayerNumber(lineup) {
 }
 
 function PositionNumber(lineup) {
-  const 
+  const field = ['C', 'P', 'SS', '2B', '1B', '3B', 'OF', 'OF', 'OF']
+  // want to pull these positions from array list
 }
 
 const validateLineup = (lineup) => {
